@@ -6,6 +6,7 @@ import { sitesRoutes } from '../modules/sites/sites.routes';
 import { infoRoutes } from '../modules/informations/information.routes';
 import { OrderRoutes } from '../modules/orders/order.routes';
 import { subScriptionRoutes } from '../modules/subscription/subscription.routes';
+import { balanceRoutes } from '../modules/balanceCalc/BalanceCalc.routes';
 const routes = Router();
 
 routes.get('/health', async (req: Request, res: Response) => {
@@ -24,5 +25,6 @@ routes.use('/sites', sitesRoutes);
 routes.use('/information', infoRoutes);
 routes.use('/orders', OrderRoutes);
 routes.use('/subscription', subScriptionRoutes);
+routes.use('/balance', balanceRoutes);
 
 export default routes;

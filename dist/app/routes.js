@@ -17,6 +17,7 @@ const sites_routes_1 = require("../modules/sites/sites.routes");
 const information_routes_1 = require("../modules/informations/information.routes");
 const order_routes_1 = require("../modules/orders/order.routes");
 const subscription_routes_1 = require("../modules/subscription/subscription.routes");
+const BalanceCalc_routes_1 = require("../modules/balanceCalc/BalanceCalc.routes");
 const routes = (0, express_1.Router)();
 routes.get('/health', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.status(200).json({
@@ -33,4 +34,5 @@ routes.use('/sites', sites_routes_1.sitesRoutes);
 routes.use('/information', information_routes_1.infoRoutes);
 routes.use('/orders', order_routes_1.OrderRoutes);
 routes.use('/subscription', subscription_routes_1.subScriptionRoutes);
+routes.use('/balance', BalanceCalc_routes_1.balanceRoutes);
 exports.default = routes;

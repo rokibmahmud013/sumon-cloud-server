@@ -18,7 +18,7 @@ export const createSubscriptionService = async (data: ISubscription) => {
     }
   };
 
-  export const getAllSubscriptionService = async (status:any) => {
+  export const getAllSubscriptionService = async (status?:any) => {
     const query: any = {
       role: { $ne: 'admin' },
       isActive: { $ne: false },
