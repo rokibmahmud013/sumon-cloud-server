@@ -37,8 +37,8 @@ const approvalOrderService = (queries) => __awaiter(void 0, void 0, void 0, func
             user: result === null || result === void 0 ? void 0 : result.userId
         };
         yield user_model_1.User.findOneAndUpdate({ _id: result === null || result === void 0 ? void 0 : result.userId }, { $set: { userType: 'paid' } });
-        yield (0, subscription_service_1.updateSubscriptionService)(subScriptionData);
-        return result;
+        const res = yield (0, subscription_service_1.updateSubscriptionService)(subScriptionData);
+        return res;
     }
     catch (error) {
         throw new Error(error);

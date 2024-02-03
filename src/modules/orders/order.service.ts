@@ -36,9 +36,9 @@ export const approvalOrderService = async (queries: any) => {
       user:result?.userId
     }
     await User.findOneAndUpdate({_id:result?.userId},{$set:{userType:'paid'}})
-    await  updateSubscriptionService(subScriptionData)
+    const res = await  updateSubscriptionService(subScriptionData)
 
-    return result;
+    return res;
   } catch (error) {
     throw new Error(error as any);
   }

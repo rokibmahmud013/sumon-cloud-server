@@ -37,6 +37,8 @@ export const createSubscriptionService = async (data: ISubscription) => {
   export const updateSubscriptionService = async (data:any) => {
     try {
 
+       await Subscription.findOne(  { user: data?.user, 'subscriptions.site': data?.site })
+
   
       await Subscription.findOneAndUpdate(
         { user: data?.user, 'subscriptions.site': data?.site },

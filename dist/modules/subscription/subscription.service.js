@@ -50,6 +50,7 @@ const getAllSubscriptionService = (status) => __awaiter(void 0, void 0, void 0, 
 exports.getAllSubscriptionService = getAllSubscriptionService;
 const updateSubscriptionService = (data) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        yield subscription_model_1.Subscription.findOne({ user: data === null || data === void 0 ? void 0 : data.user, 'subscriptions.site': data === null || data === void 0 ? void 0 : data.site });
         yield subscription_model_1.Subscription.findOneAndUpdate({ user: data === null || data === void 0 ? void 0 : data.user, 'subscriptions.site': data === null || data === void 0 ? void 0 : data.site }, {
             $set: {
                 'subscriptions.$.status': 'approved',
