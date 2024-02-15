@@ -23,9 +23,9 @@ const subSchema = new mongoose_1.Schema({
     endDate: {
         type: Date,
         default: new Date(),
-    }
+    },
 }, {
-    timestamps: true
+    timestamps: true,
 });
 const subscriptionSchema = new mongoose_1.Schema({
     user: {
@@ -33,7 +33,7 @@ const subscriptionSchema = new mongoose_1.Schema({
         required: true,
         ref: 'User',
     },
-    subscriptions: [subSchema]
+    subscriptions: [subSchema],
 }, { timestamps: true });
 subscriptionSchema.set('toObject', { virtuals: true });
 subscriptionSchema.set('toJSON', { virtuals: true });

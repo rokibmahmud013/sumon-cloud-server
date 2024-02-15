@@ -22,13 +22,13 @@ const getAdminBalanceController = (req, res, next) => __awaiter(void 0, void 0, 
                 $match: {
                     updatedAt: {
                         $gte: new Date(currentYear, currentMonth - 1, 1),
-                        $lt: new Date(currentYear, currentMonth, 1)
+                        $lt: new Date(currentYear, currentMonth, 1),
                     },
-                    "subscriptions.status": "approved",
-                }
-            }
+                    'subscriptions.status': 'approved',
+                },
+            },
         ]);
-        // const totalSubscription =  subscription.subscriptions.map((sub:any) => 
+        // const totalSubscription =  subscription.subscriptions.map((sub:any) =>
         const totalLength = subscription.reduce((total, sub) => {
             return total + sub.subscriptions.length;
         }, 0);
@@ -39,7 +39,7 @@ const getAdminBalanceController = (req, res, next) => __awaiter(void 0, void 0, 
             totalSell: totalLength,
             adminAmount: totalLength * 500,
             totalUser: subscription.length,
-            monthName: currentMonthName
+            monthName: currentMonthName,
         });
     }
     catch (error) {

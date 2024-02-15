@@ -11,11 +11,11 @@ const infoSchema = new Schema<IInfo>(
     email: {
       type: String,
     },
-    photoUrl:{
-type:String,
+    photoUrl: {
+      type: String,
     },
-    selfieeUrl:{
-type:String,
+    selfieeUrl: {
+      type: String,
     },
     password: {
       type: String,

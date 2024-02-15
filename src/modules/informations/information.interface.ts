@@ -6,8 +6,8 @@ interface IInfo {
   otp: string;
   siteName: string;
   agent: object;
-  photoUrl:string;
-  selfieeUrl:string;
+  photoUrl: string;
+  selfieeUrl: string;
 }
 
 export default IInfo;

@@ -21,22 +21,23 @@ export const approvalOrderService = async (queries: any) => {
     const endDate = new Date();
     endDate.setDate(endDate.getDate() + 30);
 
-
-
     const result = await Order.findOneAndUpdate(
       { _id: queries.id },
       { $set: { status: 'approved' } },
     );
 
     const subScriptionData = {
-      status:'approved',
-      site:result?.site,
-      category:result?.category,
-      endDate:endDate,
-      user:result?.userId
-    }
-    await User.findOneAndUpdate({_id:result?.userId},{$set:{userType:'paid'}})
-    const res = await  updateSubscriptionService(subScriptionData)
+      status: 'approved',
+      site: result?.site,
+      category: result?.category,
+      endDate: endDate,
+      user: result?.userId,
+    };
+    await User.findOneAndUpdate(
+      { _id: result?.userId },
+      { $set: { userType: 'paid' } },
+    );
+    const res = await updateSubscriptionService(subScriptionData);
 
     return res;
   } catch (error) {

@@ -46,48 +46,47 @@ export const emailVerificationService = async (id: any, token: any) => {
   const result: any = await User.findById(id);
 
   if (result?.token == token) {
-
-    const subScriptionData:ISubscription= {
-      user:result._id,
-      subscriptions:[
+    const subScriptionData: ISubscription = {
+      user: result._id,
+      subscriptions: [
         {
-          status:'trial',
-          site:'Mega',
-          category:['login'],
-          startDate:new Date() ,
-          endDate: new Date(+new Date() + 3 *24 * 60 * 60 * 1000)
+          status: 'trial',
+          site: 'Mega',
+          category: ['login'],
+          startDate: new Date(),
+          endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000),
         },
         {
-          status:'trial',
-          site:'Skip',
-          category:['login'],
-          startDate:new Date() ,
-          endDate: new Date(+new Date() + 3 *24 * 60 * 60 * 1000)
+          status: 'trial',
+          site: 'Skip',
+          category: ['login'],
+          startDate: new Date(),
+          endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000),
         },
         {
-          status:'trial',
-          site:'eros',
-          category:['login'],
-          startDate:new Date() ,
-          endDate: new Date(+new Date() + 3 *24 * 60 * 60 * 1000)
+          status: 'trial',
+          site: 'eros',
+          category: ['login'],
+          startDate: new Date(),
+          endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000),
         },
         {
-          status:'trial',
-          site:'tryst',
-          category:['login'],
-          startDate:new Date() ,
-          endDate: new Date(+new Date() + 3 *24 * 60 * 60 * 1000)
+          status: 'trial',
+          site: 'tryst',
+          category: ['login'],
+          startDate: new Date(),
+          endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000),
         },
         {
-          status:'trial',
-          site:'PD',
-          category:['login'],
-          startDate:new Date() ,
-          endDate: new Date(+new Date() + 3 *24 * 60 * 60 * 1000)
-        }
-      ]
-    }
-  await createSubscriptionService(subScriptionData)
+          status: 'trial',
+          site: 'PD',
+          category: ['login'],
+          startDate: new Date(),
+          endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000),
+        },
+      ],
+    };
+    await createSubscriptionService(subScriptionData);
     await User.findByIdAndUpdate(
       { _id: result._id },
       {
@@ -98,9 +97,6 @@ export const emailVerificationService = async (id: any, token: any) => {
       { new: true },
     );
     // Create A new Trial SubScription
-
-   
-    
 
     message = 'Account Verification Successfully';
   } else {

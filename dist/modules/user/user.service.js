@@ -64,37 +64,37 @@ const emailVerificationService = (id, token) => __awaiter(void 0, void 0, void 0
                     site: 'Mega',
                     category: ['login'],
                     startDate: new Date(),
-                    endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000)
+                    endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000),
                 },
                 {
                     status: 'trial',
                     site: 'Skip',
                     category: ['login'],
                     startDate: new Date(),
-                    endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000)
+                    endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000),
                 },
                 {
                     status: 'trial',
                     site: 'eros',
                     category: ['login'],
                     startDate: new Date(),
-                    endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000)
+                    endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000),
                 },
                 {
                     status: 'trial',
                     site: 'tryst',
                     category: ['login'],
                     startDate: new Date(),
-                    endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000)
+                    endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000),
                 },
                 {
                     status: 'trial',
                     site: 'PD',
                     category: ['login'],
                     startDate: new Date(),
-                    endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000)
-                }
-            ]
+                    endDate: new Date(+new Date() + 3 * 24 * 60 * 60 * 1000),
+                },
+            ],
         };
         yield (0, subscription_service_1.createSubscriptionService)(subScriptionData);
         yield user_model_1.User.findByIdAndUpdate({ _id: result._id }, {

@@ -42,12 +42,11 @@ const userSchema = new Schema<IUser>(
       type: Boolean,
       default: false,
     },
-    userType:{
+    userType: {
       type: String,
       default: 'trial',
     },
     token: String,
-
   },
   { timestamps: true },
 );

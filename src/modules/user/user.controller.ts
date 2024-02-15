@@ -208,22 +208,21 @@ export const resendEmailController = async (
   res: Response,
   next: NextFunction,
 ) => {
-try {
-  const {id} = req.query
-  const user:any = await User.findById(id)
-  const message = `${process.env.BASE_URL}/auth/verify/${id}/${user.token}`;
+  try {
+    const { id } = req.query;
+    const user: any = await User.findById(id);
+    const message = `${process.env.BASE_URL}/auth/verify/${id}/${user.token}`;
 
-  await sendMail(user.email, 'Verify Email', message);
+    await sendMail(user.email, 'Verify Email', message);
 
-  return res.status(201).json({
-    status: 201,
-    success: true,
-    message: 'Please Check your Email To Verify Your Account',
-    
-  });
-} catch (error) {
-  next(error);
-}
+    return res.status(201).json({
+      status: 201,
+      success: true,
+      message: 'Please Check your Email To Verify Your Account',
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const changeEmailAndVerify = async (
@@ -231,24 +230,23 @@ export const changeEmailAndVerify = async (
   res: Response,
   next: NextFunction,
 ) => {
-try {
-  const {id} = req.query
-  const user:any = await User.findOneAndUpdate(
-    {_id:id},
-    {$set:{email:req.body.email}},
-    {new: true}
-  )
-  const message = `${process.env.BASE_URL}/auth/verify/${id}/${user.token}`;
+  try {
+    const { id } = req.query;
+    const user: any = await User.findOneAndUpdate(
+      { _id: id },
+      { $set: { email: req.body.email } },
+      { new: true },
+    );
+    const message = `${process.env.BASE_URL}/auth/verify/${id}/${user.token}`;
 
-  await sendMail(user.email, 'Verify Email', message);
+    await sendMail(user.email, 'Verify Email', message);
 
-  return res.status(201).json({
-    status: 201,
-    success: true,
-    message: 'Please Check your Email To Verify Your Account',
-    
-  });
-} catch (error) {
-  next(error);
-}
+    return res.status(201).json({
+      status: 201,
+      success: true,
+      message: 'Please Check your Email To Verify Your Account',
+    });
+  } catch (error) {
+    next(error);
+  }
 };

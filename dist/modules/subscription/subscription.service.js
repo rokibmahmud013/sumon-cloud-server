@@ -50,7 +50,10 @@ const getAllSubscriptionService = (status) => __awaiter(void 0, void 0, void 0, 
 exports.getAllSubscriptionService = getAllSubscriptionService;
 const updateSubscriptionService = (data) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield subscription_model_1.Subscription.findOne({ user: data === null || data === void 0 ? void 0 : data.user, 'subscriptions.site': data === null || data === void 0 ? void 0 : data.site });
+        yield subscription_model_1.Subscription.findOne({
+            user: data === null || data === void 0 ? void 0 : data.user,
+            'subscriptions.site': data === null || data === void 0 ? void 0 : data.site,
+        });
         yield subscription_model_1.Subscription.findOneAndUpdate({ user: data === null || data === void 0 ? void 0 : data.user, 'subscriptions.site': data === null || data === void 0 ? void 0 : data.site }, {
             $set: {
                 'subscriptions.$.status': 'approved',
@@ -74,7 +77,7 @@ const expiredFunc = (id) => __awaiter(void 0, void 0, void 0, function* () {
             throw new Error(`No document found with id ${id}`);
         doc.subscriptions = doc.subscriptions.map(subscription => {
             if (subscription.endDate < currentDate) {
-                subscription.status = "expired";
+                subscription.status = 'expired';
             }
             return subscription;
         });

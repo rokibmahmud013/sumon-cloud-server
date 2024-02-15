@@ -11,7 +11,7 @@ export const UserValidationSchema = z.object({
       message: 'Gender must be either male or female',
     }),
   password: z.string(),
-  isActive:z.boolean().optional(),
+  isActive: z.boolean().optional(),
   role: z
     .string()
     .optional()
